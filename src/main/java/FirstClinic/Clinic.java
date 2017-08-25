@@ -2,6 +2,7 @@ package FirstClinic;
 
 import java.util.ArrayList;
 
+
 public class Clinic {
     private ArrayList<Client> clients = new ArrayList<Client>();
 
@@ -13,11 +14,26 @@ public class Clinic {
     }
     public void removeClient(Client client){
         if(clients.contains(client)){
-            clients.remove(client);
+             clients.remove(client);
         }else {
+
             System.out.println("Такого клиента нет");
         }
     }
+    public Client getClientByName(String name){
+        Client result = null;
+        for(Client client:clients){
+            if(client.getName()==name){
+                result=client;
+            }
+        }
+        return result;
+    }
+
+    public ArrayList<Client> getClients() {
+        return clients;
+    }
+
     public Pet getClientsPet(Client client){
         return client.getPet();
     }
@@ -30,5 +46,11 @@ public class Clinic {
         for(Client client : clients){
             System.out.println(client);
         }
+    }
+    public int getNumberOfClients(){
+        return clients.size();
+    }
+    public void removeAllClients(){
+        clients.clear();
     }
 }

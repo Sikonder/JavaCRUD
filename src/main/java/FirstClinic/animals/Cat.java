@@ -1,6 +1,8 @@
-package FirstClinic;
+package FirstClinic.animals;
 
-public class Cat implements Pet{
+import FirstClinic.animals.Pet;
+
+public class Cat implements Pet {
     private String name;
 
     public String getName() {

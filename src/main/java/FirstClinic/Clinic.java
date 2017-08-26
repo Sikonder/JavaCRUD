@@ -1,23 +1,27 @@
 package FirstClinic;
 
+import FirstClinic.animals.Pet;
+import FirstClinic.exceptions.AlreadyContainsException;
+import FirstClinic.exceptions.NoSuchClientException;
+
 import java.util.ArrayList;
 
 
 public class Clinic {
     private ArrayList<Client> clients = new ArrayList<Client>();
 
-    public void addClient(Client client){
+    public void addClient(Client client) throws AlreadyContainsException {
         if(!clients.contains(client))
             clients.add(client);
         else
-            System.out.println("Такой уже есть");
+            throw new AlreadyContainsException("Такой уже есть");
+
     }
-    public void removeClient(Client client){
+    public void removeClient(Client client) throws NoSuchClientException {
         if(clients.contains(client)){
              clients.remove(client);
         }else {
-
-            System.out.println("Такого клиента нет");
+            throw new NoSuchClientException("Такого клиента нет");
         }
     }
     public Client getClientByName(String name){

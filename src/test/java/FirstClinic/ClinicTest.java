@@ -1,13 +1,12 @@
 package FirstClinic;
 
+import FirstClinic.animals.Cat;
+import FirstClinic.animals.Dog;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 import static org.junit.Assert.*;

@@ -1,5 +1,7 @@
 package FirstClinic;
 
+import FirstClinic.animals.Pet;
+
 public class Client {
     private String name;
     private Pet pet;

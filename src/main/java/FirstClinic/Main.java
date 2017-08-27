@@ -2,26 +2,28 @@ package FirstClinic;
 
 import FirstClinic.animals.Cat;
 import FirstClinic.animals.Dog;
+import FirstClinic.command.CommandExecutor;
 import FirstClinic.exceptions.AlreadyContainsException;
 import FirstClinic.exceptions.NoSuchClientException;
 
 public class Main {
     public static void main(String args[]){
-        Clinic clinic = new Clinic();
-        Client John = new Client("John",new Dog("Пес Джона"));
-        Client Steve = new Client("Steve",new Cat("Кот Стива"));
 
+            Operation operation = null;
+            do {
+                try {
+                    ConsoleHelper.printMessage("Выберете операцию: 1: Добавить клиента, 2: Получить клиента, 3: Удалить клиента," +
+                            " 4: Сменить животного у клиента, 5: Показать всех клиентов, 6: Выйти");
+                    operation=Operation.getAllowableOperationByOrdinal(Integer.parseInt(ConsoleHelper.readMessage()));
+                    CommandExecutor.execute(operation);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                } catch (AlreadyContainsException e) {
+                    e.printStackTrace();
+                } catch (NoSuchClientException e) {
+                    e.printStackTrace();
+                }
+            }while (operation!=Operation.EXIT);
 
-        try {
-            clinic.addClient(Steve);
-            clinic.addClient(John);
-            clinic.removeClient(John);
-        } catch (AlreadyContainsException e) {
-            e.printStackTrace();
-        } catch (NoSuchClientException e) {
-            e.printStackTrace();
-        }
-
-        clinic.getClientsPet(Steve).makeNoise();
     }
 }

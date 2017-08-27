@@ -8,7 +8,9 @@ import java.util.ArrayList;
 
 
 public class Clinic {
-    private ArrayList<Client> clients = new ArrayList<Client>();
+    private static ArrayList<Client> clients = new ArrayList<Client>();
+
+
 
     public void addClient(Client client) throws AlreadyContainsException {
         if(!clients.contains(client))
@@ -34,7 +36,7 @@ public class Clinic {
         return result;
     }
 
-    public ArrayList<Client> getClients() {
+    public static ArrayList<Client> getClients() {
         return clients;
     }
 
